@@ -20,10 +20,9 @@ module ActiveAdmin
       def confirm_asset_gems_are_installed
         %w[bourbon coffee-rails jquery-rails sass-rails].each do |name|
           begin
-            require name
-          rescue LoadError => e
-            raise unless e.message =~ /#{name}/ # re-raise if the exception isn't directly from this gem
-            raise "ActiveAdmin depends on the #{name} gem for JS/CSS."
+            gem name
+          rescue Gem::LoadError
+            raise "ActiveAdmin depends on #{name}. Please add it to your Gemfile."
           end
         end
       end
