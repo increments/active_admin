@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
   s.add_dependency("kaminari", ">= 0.13.0")
   s.add_dependency("fastercsv", ">= 0")
   s.add_dependency("arbre", ">= 1.0.1")
+  s.add_dependency("protected_attributes")
 
   # Asset dependencies
   # + bourbon

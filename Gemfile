@@ -43,3 +43,5 @@ group :test do
   gem 'shoulda-matchers'
   gem 'sqlite3'
 end
+
+gem 'protected_attributes'
