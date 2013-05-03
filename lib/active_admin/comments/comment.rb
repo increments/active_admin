@@ -9,8 +9,6 @@ module ActiveAdmin
     belongs_to :resource, :polymorphic => true
     belongs_to :author,   :polymorphic => true
 
-    attr_accessible :resource, :resource_id, :resource_type, :body, :namespace
-
     validates_presence_of :body, :namespace, :resource
 
     # @returns [String] The name of the record to use for the polymorphic relationship
@@ -47,5 +45,9 @@ module ActiveAdmin
 
   end
 
+  private
+  def comment_params
+    params.require(:resource).permit(:resource_id, :resource_type, :body, :namespace)
+  end
 end
 
